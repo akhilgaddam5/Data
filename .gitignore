@@ -1,0 +1,16 @@
+# Build directories
+build/
+cmake-build-*/
+
+# Compiled artifacts
+*.o
+*.obj
+*.out
+*.exe
+dccollections
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+.DS_Store
