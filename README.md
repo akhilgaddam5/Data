@@ -2,7 +2,40 @@
 
 A modern C++17 project demonstrating object-oriented programming, custom
 collections (binary search tree, linked queue), and sorting algorithms,
-built around a data-center task management domain.
+built around a data-center task management domain. Runs on Windows, Linux,
+and macOS.
+
+## Quick Start
+
+### Windows
+
+1. Install a compiler (pick one):
+   - **WinLibs MinGW-w64 (recommended):** `winget install BrechtSanders.WinLibs.POSIX.UCRT`,
+     or download from https://winlibs.com/ and add its `bin\` folder to PATH
+   - **Visual Studio Build Tools (MSVC):** https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio
+     (run `build.bat` from the "x64 Native Tools Command Prompt")
+2. Double-click **build.bat** (or run it in Command Prompt)
+3. Double-click **run.bat**
+
+The build script auto-detects g++ or cl on PATH.
+
+### Linux / macOS / WSL
+
+```bash
+g++ -std=c++17 -Wall -Wextra -Iinclude src/main.cpp -o dccollections
+./dccollections
+```
+
+### Any platform with CMake
+
+```bash
+cmake -B build && cmake --build build
+./build/dccollections        # Linux/macOS
+.\build\dccollections.exe    # Windows
+```
+
+Visual Studio can also open this folder directly (File > Open > Folder) and
+use the provided CMakeLists.txt.
 
 ## Project Structure
 
@@ -15,6 +48,8 @@ include/
   Sorters.h           MergeSort, QuickSort, HeapSort implementations
 src/
   main.cpp            Demo tying all collections and algorithms together
+build.bat            One-click build for Windows (g++ or MSVC)
+run.bat              One-click run for Windows
 CMakeLists.txt        Build configuration
 ```
 
@@ -51,20 +86,6 @@ CMakeLists.txt        Build configuration
 
 Each sorter's output is verified against `std::sort` at runtime, and the BST
 in-order traversal is cross-checked against the sorted vector.
-
-## Build and Run
-
-Requires a C++17 compiler (g++ 7+, clang 5+, or MSVC 2017+).
-
-```bash
-# Option A: CMake
-cmake -B build && cmake --build build
-./build/dccollections
-
-# Option B: single command
-g++ -std=c++17 -Wall -Wextra -Iinclude src/main.cpp -o dccollections
-./dccollections
-```
 
 ## Suggested Exercises
 
